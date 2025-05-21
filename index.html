@@ -3187,6 +3187,43 @@ header.scrolled {
                 </div>
                 <button type="submit" class="submit-btn">Ajánlat kérése</button>
             </form>
+            <script>
+                var form = document.getElementById("contactForm");
+                
+                async function handleSubmit(event) {
+                    event.preventDefault();
+                    var status = document.getElementById("form-status");
+                    var data = new FormData(event.target);
+                    fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            form.innerHTML = `
+                                <div class="form-success">
+                                    <div class="success-icon">✓</div>
+                                    <h3>Köszönjük a megkeresést!</h3>
+                                    <p>Ajánlatát megkaptuk, munkatársunk hamarosan felveszi Önnel a kapcsolatot.</p>
+                                </div>
+                            `;
+                        } else {
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                                } else {
+                                    status.innerHTML = "Hiba történt a küldés során"
+                                }
+                            })
+                        }
+                    }).catch(error => {
+                        status.innerHTML = "Hiba történt a küldés során"
+                    });
+                }
+                form.addEventListener("submit", handleSubmit)
+            </script>
             <div class="contact-info">
                 <h3>Kapcsolat</h3>
                 <ul class="contact-details">
@@ -3470,41 +3507,32 @@ header.scrolled {
        
        // Form validation and submission
        const contactForm = document.querySelector('.contact-form');
-       if (contactForm) {
-           contactForm.addEventListener('submit', (e) => {
-               e.preventDefault();
-               
-               // Get form values
-               const name = document.getElementById('name').value;
-               const email = document.getElementById('email').value;
-               const phone = document.getElementById('phone').value;
-               const service = document.getElementById('service').value;
-               const message = document.getElementById('message').value;
-               
-               // Simple validation
-               if (!name || !email || !service || !message) {
-                   alert('Kérjük töltse ki az összes kötelező mezőt!');
-                   return;
-               }
-               
-               // Email validation
-               const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-               if (!emailRegex.test(email)) {
-                   alert('Kérjük adjon meg egy érvényes email címet!');
-                   return;
-               }
-               
-               // In a real implementation, you would send the form data to a server
-               // For this demo, we'll just show a success message
-               contactForm.innerHTML = `
-                   <div class="form-success">
-                       <div class="success-icon">✓</div>
-                       <h3>Köszönjük a megkeresést!</h3>
-                       <p>Ajánlatát megkaptuk, munkatársunk hamarosan felveszi Önnel a kapcsolatot.</p>
-                   </div>
-               `;
-           });
-       }
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        // Form validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Simple validation
+        if (!name || !email || !message) {
+            e.preventDefault(); // Csak akkor akadályozza meg a küldést, ha validációs hiba van
+            alert('Kérjük töltse ki az összes kötelező mezőt!');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            e.preventDefault();
+            alert('Kérjük adjon meg egy érvényes email címet!');
+            return;
+        }
+        
+        // Ha minden rendben, hagyjuk, hogy az űrlap elküldődjön
+        // Itt nem kell a preventDefault(), és nem változtatjuk meg az űrlap tartalmát
+    });
+}
    });
        // Mobile Menu Toggle
        document.addEventListener('DOMContentLoaded', function() {
