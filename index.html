@@ -3167,12 +3167,32 @@ header.scrolled {
     <div class="container">
         <h2 class="section-title">Ajánlatkérés</h2>
         <div class="contact-content">
-            <form action="https://formsubmit.co/hidvancekft@gmail.com" method="POST">
-                <input type="text" name="name" required>
-                <input type="email" name="email" required>
-                <button type="submit">Küldés</button>
+            <form class="contact-form" action="https://formsubmit.co/hidvancekft@gmail.com" method="POST">
+                <div class="form-group">
+                  <label for="name">Név / Cégnév</label>
+                  <input type="text" id="name" name="name" class="form-control" required placeholder="Adja meg nevét vagy cége nevét">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email cím</label>
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="pelda@gmail.hu">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Telefonszám</label>
+                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="+36 30 123 4567">
+                </div>
+                <div class="form-group">
+                  <label for="message">Üzenet</label>
+                  <textarea id="message" name="message" class="form-control" placeholder="Kérjük írja le az ajánlatkérés részleteit"></textarea>
+                </div>
+                <!-- FormSubmit konfigurációs mezők -->
                 <input type="hidden" name="_captcha" value="false">
-              </form>
+                <input type="hidden" name="_subject" value="Új ajánlatkérés a weboldalról">
+                <input type="hidden" name="_template" value="table">
+                <!-- Honeypot spam védelem -->
+                <input type="text" name="_honey" style="display:none">
+                
+                <button type="submit" class="submit-btn">Ajánlat kérése</button>
+            </form>
             <div class="contact-info">
                 <h3>Kapcsolat</h3>
                 <ul class="contact-details">
