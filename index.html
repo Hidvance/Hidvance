@@ -3167,63 +3167,33 @@ header.scrolled {
     <div class="container">
         <h2 class="section-title">Ajánlatkérés</h2>
         <div class="contact-content">
-            <form class="contact-form" action="https://formspree.io/f/xqaqokgr" method="POST">
-                <!-- Helyettesítse az xxxxxxxx részt a Formspree űrlap azonosítójával -->
+            <form class="contact-form" action="https://formsubmit.co/hidvancekft@gmail.com" method="POST">
                 <div class="form-group">
-                  <label for="name">Név / Cégnév</label>
-                  <input type="text" id="name" name="name" class="form-control" required placeholder="Adja meg nevét vagy cége nevét">
+                    <label for="name">Név / Cégnév</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Adja meg nevét vagy cége nevét">
                 </div>
                 <div class="form-group">
-                  <label for="email">Email cím</label>
-                  <input type="email" id="email" name="email" class="form-control" required placeholder="pelda@gmail.hu">
+                    <label for="email">Email cím</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="pelda@gmail.hu">
                 </div>
                 <div class="form-group">
-                  <label for="phone">Telefonszám</label>
-                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="+36 30 123 4567">
+                    <label for="phone">Telefonszám</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+36 30 123 4567">
                 </div>
                 <div class="form-group">
-                  <label for="message">Üzenet</label>
-                  <textarea id="message" name="message" class="form-control" placeholder="Kérjük írja le az ajánlatkérés részleteit"></textarea>
+                    <label for="message">Üzenet</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Kérjük írja le az ajánlatkérés részleteit"></textarea>
                 </div>
+                
+                <!-- FormSubmit konfigurációs mezők -->
+                <input type="hidden" name="_next" value="https://hidvance.github.io/Hidvance/">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Új ajánlatkérés a HidVance weboldalról">
+                <!-- Honeypot spam védelem -->
+                <input type="text" name="_honey" style="display:none">
+                
                 <button type="submit" class="submit-btn">Ajánlat kérése</button>
             </form>
-            <script>
-                var form = document.getElementById("contactForm");
-                
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("form-status");
-                    var data = new FormData(event.target);
-                    fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                            form.innerHTML = `
-                                <div class="form-success">
-                                    <div class="success-icon">✓</div>
-                                    <h3>Köszönjük a megkeresést!</h3>
-                                    <p>Ajánlatát megkaptuk, munkatársunk hamarosan felveszi Önnel a kapcsolatot.</p>
-                                </div>
-                            `;
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                                } else {
-                                    status.innerHTML = "Hiba történt a küldés során"
-                                }
-                            })
-                        }
-                    }).catch(error => {
-                        status.innerHTML = "Hiba történt a küldés során"
-                    });
-                }
-                form.addEventListener("submit", handleSubmit)
-            </script>
             <div class="contact-info">
                 <h3>Kapcsolat</h3>
                 <ul class="contact-details">
