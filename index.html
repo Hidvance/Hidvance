@@ -3549,40 +3549,39 @@ header.scrolled {
        });
  
        
-// Contact form kezelés
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Betöltés animáció megjelenítése
-        showLoading();
-        
-        // FormData objektum létrehozása
-        const formData = new FormData(this);
-        
-        try {
-            // Üzenet küldése FormSubmit-hoz
-            const response = await fetch('https://formsubmit.co/hidvancekft@gmail.com', {
-                method: 'POST',
-                body: formData
-            });
+// Contact form kezelés - javított verzió
+function initContactForm() {
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            hideLoading();
+            // Betöltés animáció megjelenítése
+            showLoading();
             
-            if (response.ok) {
-                // Sikeres küldés - success üzenet megjelenítése
-                showSuccessMessage();
-            } else {
-                alert('Hiba történt az üzenet küldése során. Kérjük, próbálja újra.');
+            // FormData objektum létrehozása
+            const formData = new FormData(this);
+            
+            try {
+                // Üzenet küldése FormSubmit-hoz
+                const response = await fetch('https://formsubmit.co/hidvancekft@gmail.com', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    // Sikeres küldés - success üzenet megjelenítése
+                    showSuccessMessage();
+                } else {
+                    alert('Hiba történt az üzenet küldése során. Kérjük, próbálja újra.');
+                }
+                
+            } catch (error) {
+                console.error('Hiba:', error);
+                alert('Hiba történt az üzenet küldése során. Kérjük, ellenőrizze az internetkapcsolatát és próbálja újra.');
             }
-            
-        } catch (error) {
-            hideLoading();
-            console.error('Hiba:', error);
-            alert('Hiba történt az üzenet küldése során. Kérjük, ellenőrizze az internetkapcsolatát és próbálja újra.');
-        }
-    });
+        });
+    }
 }
 
 function showLoading() {
@@ -3594,10 +3593,6 @@ function showLoading() {
             <p>Kérjük várjon, amíg feldolgozzuk az ajánlatkérését.</p>
         </div>
     `;
-}
-
-function hideLoading() {
-    // Ez már nem kell, mert átváltunk a success üzenetre
 }
 
 function showSuccessMessage() {
@@ -3639,7 +3634,13 @@ function resetForm() {
         
         <button type="submit" class="submit-btn">Ajánlat kérése</button>
     `;
+    
+    // Event listener újra inicializálása
+    initContactForm();
 }
+
+// Inicializálás az oldal betöltésekor
+initContactForm();
  
 
 });
