@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HidVance - Professzionális takarítószolgálat Budapesten</title>
+  <title>HidVance - Professzionális takarítószolgálat Budapest és körzete területén</title>
+  
+  <!-- SEO Meta tagek -->
+  <meta name="description" content="HidVance professzionális takarítószolgálat Budapest és körzete területén. Irodatakarítás, rendelőtakarítás, nagytakarítás cégeknek. Megbízható, precíz tisztítás minden alkalommal.">
+  <meta name="keywords" content="takarítás, takarítás Budapest, irodatakarítás, céges takarítás, rendelőtakarítás, nagytakarítás, HidVance, professzionális takarítás, takarítószolgálat, tisztítás">
+  <meta name="author" content="HidVance Kft.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hidvance.hu/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hidvance.hu/">
+  <meta property="og:title" content="HidVance - Professzionális takarítószolgálat Budapest és körzete">
+  <meta property="og:description" content="Megbízható céges takarítás irodáknak, rendelőknek. 24 órán belüli ajánlatadás, ingyenes helyszíni konzultáció.">
+  <meta property="og:image" content="https://hidvance.hu/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -961,6 +983,136 @@
         border-left-color: var(--accent-blue);
     }
 
+    /* Modern partner kártyák */
+    .modern-partners {
+        text-align: center;
+    }
+
+    .partner-cards {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .partner-card {
+        background: linear-gradient(135deg, var(--white), var(--light-gray));
+        border-radius: 16px;
+        padding: 35px 40px;
+        min-width: 280px;
+        max-width: 320px;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        border: 1px solid var(--medium-gray);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .partner-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+    }
+
+    .partner-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--secondary-blue);
+    }
+
+    .partner-card-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--white);
+        font-size: 24px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .partner-card-content h4 {
+        color: var(--primary-blue);
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .partner-card-content p {
+        color: var(--dark-gray);
+        font-size: 15px;
+        opacity: 0.8;
+    }
+
+    /* Trust badge az Ajánlatkérés mellett */
+    .trust-badge,
+    .trust-badge-form {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        padding: 25px 30px;
+        background: linear-gradient(135deg, rgba(0, 82, 204, 0.05), rgba(0, 196, 255, 0.05));
+        border-radius: 12px;
+        border: 1px solid var(--medium-gray);
+    }
+
+    .trust-badge-form {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 25px;
+        padding: 20px;
+    }
+
+    .trust-badge-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--primary-blue);
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .trust-badge-item i {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .partner-cards {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .partner-card {
+            min-width: 260px;
+        }
+
+        .trust-badge,
+        .trust-badge-form {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+    }
+
     .contact {
         padding: 120px 0;
         background-color: var(--gray);
@@ -1486,7 +1638,6 @@
     background-color: var(--accent-blue);
     transform: scale(1.2);
 }
-</style>
   </style>
 </head>
 <body>
@@ -1515,8 +1666,8 @@
   <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1>Tisztaság prémium szinten. Minden reggel. Minden négyzetcentin.</h1>
-            <p>Professzionális napi takarítás Budapesten irodák, rendelők és AirBnB lakások részére. Diszkréten, megbízhatóan, elegánsan.</p>
+            <h1>Precíz, megbízható takarítás cégeknek – minden alkalommal időben, zavarás nélkül.</h1>
+            <p>Professzionális napi takarítás Budapest és körzete területén irodák, rendelők és üzlethelyiségek részére. Diszkréten, megbízhatóan, elegánsan.</p>
             <a href="#contact" class="hero-cta">Ajánlatot kérek</a>
         </div>
     </div>
@@ -1529,7 +1680,7 @@
             <div class="about-text">
                 <div class="about-intro">
                     <h3 class="about-subtitle">Tisztaság és megbízhatóság, ami különlegessé tesz minket</h3>
-                    <p class="about-description">A HidVance Kft. budapesti központú takarítószolgálat, amely a napi tisztaságot nemcsak biztosítja, hanem garantálja is. Specializációnk az irodák, egészségügyi rendelők és rövid távú kiadó lakások (AirBnB) rendszeres takarítása.</p>
+                    <p class="about-description">A HidVance Kft. Budapesten és vonzáskörzetében működő takarítószolgálat, amely a napi tisztaságot nemcsak biztosítja, hanem garantálja is. Specializációnk az irodák, egészségügyi rendelők és üzlethelyiségek rendszeres takarítása.</p>
                     <p class="about-mission">Célunk, hogy minden ügyfelünk tiszta, rendezett, higiénikus környezetben dolgozhasson vagy pihenhet. A precizitás, megbízhatóság és a diszkrét jelenlét nálunk nem extra szolgáltatás, hanem alap.</p>
                 </div>
                 
@@ -1582,19 +1733,13 @@
         <h2 class="section-title">Szolgáltatásaink</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">
-                    <i>🏢</i>
-                </div>
-                <div class="service-image" style="background-image: url(iroda-takaritas-alkalmi-jelleggel-es-rendszeres-megbizassal-takaritoceg-com.jpg);"></div>
+                <div class="service-image" style="background-image: url(napi.jpg);"></div>
                 <div class="service-content">
                     <h3>Napi takarítás</h3>
                     <p>Rendszeres, napi szintű karbantartó takarítás irodák és üzlethelyiségek részére. Portalalanítás, porszívózás, felületek fertőtlenítése, szemétkezelés.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i>🥼</i>
-                </div>
                 <div class="service-image" style="background-image: url(takarito-emineo.jpg);"></div>
                 <div class="service-content">
                     <h3>Egészségügyi takarítás</h3>
@@ -1602,10 +1747,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i>🪟</i>
-                </div>
-                <div class="service-image" style="background-image: url(ablaktisztitas.jpg);"></div>
+                <div class="service-image" style="background-image: url(ablak.jpeg);"></div>
                 <div class="service-content">
                     <h3>Külső-belső ablaktisztítás</h3>
                     <p>Alpinista módszerrel végzett külső ablaktisztítás, akár magas épületeken is. Belső üvegfelületek csíkmentes, professzionális tisztítása speciális eszközökkel.</p>
@@ -1615,20 +1757,14 @@
         
         <div class="services-grid second-row">
             <div class="service-card">
-                <div class="service-icon">
-                    <i>🧹</i>
-                </div>
-                <div class="service-image" style="background-image: url(nagytakaritas.jpg);"></div>
+                <div class="service-image" style="background-image: url(nagy.webp);"></div>
                 <div class="service-content">
                     <h3>Nagytakarítás</h3>
                     <p>Átfogó, alapos takarítás szezonális igények, költözés előtt vagy után, illetve irodafelújítás után. Minden helyiség teljes körű tisztítása, fertőtlenítése.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i>🌅</i>
-                </div>
-                <div class="service-image" style="background-image: url(iroda-takaritas-alkalmi-jelleggel-es-rendszeres-megbizassal-takaritoceg-com.jpg);"></div>
+                <div class="service-image" style="background-image: url(sima.jpeg);"></div>
                 <div class="service-content">
                     <h3>Napi és heti takarítás</h3>
                     <p>Irodák, üzlethelyiségek rendszeres tisztítása. Portalalanítás, porszívózás, fertőtlenítés.</p>
@@ -1659,7 +1795,7 @@
                     <div class="faq-toggle">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>Ez nagyban függ az ingatlan típusától és használatától. Irodák esetében általában napi takarítást javaslunk, míg egészségügyi intézményeknél ez lehet napi többszöri is. AirBnB lakásoknál a vendégek távozása után és érkezése előtt javasolt a teljes takarítás.</p>
+                    <p>Ez nagyban függ az ingatlan típusától és használatától. Irodák esetében általában napi takarítást javaslunk, míg egészségügyi intézményeknél ez lehet napi többszöri is. Üzlethelyiségeknél a forgalom és az igények függvényében alakítjuk ki a takarítás gyakoriságát.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1669,6 +1805,40 @@
                 </div>
                 <div class="faq-answer">
                     <p>Igen, vállalunk egyszeri alkalommal történő nagytakarítást is, például költözés előtt vagy után, rendezvény után, vagy szezonális nagytakarításként.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Hogyan történik az első takarítás?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Az első takarítás célja, hogy pontosan megismerjük az ingatlant és az elvárásaidat, így a későbbiekben mindig azonos, magas színvonalú szolgáltatást tudjunk nyújtani.</p>
+                    <p><strong>Kapcsolatfelvétel és egyeztetés</strong><br>
+                    Ajánlatkérés után felvesszük veled a kapcsolatot, és röviden egyeztetjük az ingatlan típusát, méretét, a takarítás gyakoriságát és az esetleges speciális igényeket.</p>
+                    <p><strong>Helyszíni felmérés vagy részletes egyeztetés</strong><br>
+                    Szükség esetén helyszíni felmérést végzünk, ahol átbeszéljük a takarítandó területeket, az elvárt tisztasági szintet és az egyedi kéréseket (pl. rendelők, irodák, üzlethelyiségek).</p>
+                    <p><strong>Személyre szabott ajánlat</strong><br>
+                    Az egyeztetés alapján átlátható, személyre szabott árajánlatot készítünk, rejtett költségek nélkül.</p>
+                    <p><strong>Alapos első takarítás</strong><br>
+                    Az első alkalom mindig kiemelten alapos. Célunk, hogy egy tiszta „alapállapotot" hozzunk létre, amelyre a rendszeres takarítás később épülhet.</p>
+                    <p><strong>Visszajelzés és finomhangolás</strong><br>
+                    Az első takarítás után lehetőséget biztosítunk a visszajelzésre, hogy a szolgáltatást teljes mértékben az igényeidhez igazítsuk.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Mi történik, ha sürgős takarításra van szükség?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Tudjuk, hogy vannak helyzetek, amikor a takarítást nem lehet halogatni – ezért sürgős megkeresések esetén is igyekszünk rugalmas megoldást nyújtani.</p>
+                    <p><strong>Gyors kapcsolatfelvétel</strong><br>
+                    Sürgős esetben telefonon vagy e-mailben rövid időn belül reagálunk, és felmérjük a feladat jellegét, az ingatlan méretét és az időkeretet.</p>
+                    <p><strong>Fókuszált, hatékony takarítás</strong><br>
+                    Sürgős esetben a takarítást a legkritikusabb területekre és feladatokra koncentráljuk, hogy az ingatlan a lehető legrövidebb időn belül használható, rendezett és tiszta legyen.</p>
+                    <p><strong>Őszinte visszajelzés</strong><br>
+                    Ha az adott időpontban nem tudjuk vállalni a munkát, erről egyenesen és időben tájékoztatunk – nálunk a korrektség alapelv.</p>
                 </div>
             </div>
         </div>
@@ -1699,7 +1869,7 @@
                         <img src="kep2.jpg" alt="Kreativ Dental épület hátulról">
                     </div>
                     <div class="gallery-slide">
-                        <img src="kep3.jpg"Kreativ Dental épület oldalnézetből">
+                        <img src="kep3.jpg" alt="Kreativ Dental épület oldalnézetből">
                     </div>
                     <div class="gallery-dots">
                         <span class="gallery-dot active" data-slide="0"></span>
@@ -1709,13 +1879,28 @@
                 </div>
             </div>
             
-            <div class="partner-list">
-                <h3>További partnereink között:</h3>
-                <ul>
-                    <li>Multinacionális vállalatok budapesti irodái</li>
-                    <li>Magánklinikák és orvosi rendelők</li>
-                    
-                </ul>
+            <div class="partner-list modern-partners">
+                <h3>További partnereink</h3>
+                <div class="partner-cards">
+                    <div class="partner-card">
+                        <div class="partner-card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="partner-card-content">
+                            <h4>Multinacionális vállalatok</h4>
+                            <p>budapesti irodái</p>
+                        </div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-card-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="partner-card-content">
+                            <h4>Magánklinikák</h4>
+                            <p>és orvosi rendelők</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1749,31 +1934,42 @@
                 <input type="text" name="_honey" style="display:none">
                 
                 <button type="submit" class="submit-btn">Ajánlat kérése</button>
+                
+                <!-- Trust badge -->
+                <div class="trust-badge-form">
+                    <div class="trust-badge-item">
+                        <i class="fas fa-clock"></i>
+                        <span>24 órán belüli ajánlatadás</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Ingyenes helyszíni konzultáció kérés</span>
+                    </div>
+                </div>
             </form>
             
             <div class="contact-info">
                 <h3>Kapcsolat</h3>
                 <ul class="contact-details">
                     <li>
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-icon-content">
                             <strong>Szolgáltatási terület:</strong>
-                            Budapest és vonzáskörzete
+                            Budapest és körzete
                         </div>
                     </li>
                     <li>
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-icon-content">
                             <strong>Telefonszám</strong>
                             +36 70 707 3858
                         </div>
                     </li>
                     <li>
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-icon-content">
                             <strong>Email</strong>
                             hidvancekft@gmail.com
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -1786,19 +1982,13 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">HidVance</div>
-                <p class="footer-desc">Professzionális takarítószolgálat Budapesten. Minőségi tisztaság minden reggel, minden négyzetcentin.</p>
+                <p class="footer-desc">Professzionális takarítószolgálat Budapest és körzete területén. Minőségi tisztaság minden reggel, minden négyzetcentiméteren.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link">
-                        <i>📱</i>
+                    <a href="https://facebook.com/hidvance" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="social-link">
-                        <i>💼</i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i>📷</i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i>📺</i>
+                    <a href="https://instagram.com/hidvance" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>
@@ -1824,28 +2014,28 @@
             <div class="footer-column">
                 <h4>Kapcsolat</h4>
                 <div class="footer-contact">
-                    <i>📍</i>
-                    <span>Szolgáltatási terület: Budapest és vonzáskörzete</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Szolgáltatási terület: Budapest és körzete</span>
                 </div>
                 <div class="footer-contact">
-                    <i>📞</i>
+                    <i class="fas fa-phone"></i>
                     <span>+36 70 707 3858</span>
                 </div>
                 <div class="footer-contact">
-                    <i>✉️</i>
+                    <i class="fas fa-envelope"></i>
                     <span>hidvancekft@gmail.com</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 HidVance Kft. Minden jog fenntartva.</p>
+            <p>&copy; 2026 HidVance Kft. Minden jog fenntartva.</p>
         </div>
     </div>
   </footer>
 
-  <div class="back-to-top">↑</div>
+  <div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -2021,15 +2211,17 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
-// Automatikus váltás 4 másodpercenként
-setInterval(nextSlide, 4000);
+function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+}
 
-// Manuális váltás a pontokra kattintva
-dots.forEach(dot => {
-    dot.addEventListener('click', function() {
-        currentSlide = parseInt(this.getAttribute('data-slide'));
-        showSlide(currentSlide);
-    });
+// Automatikus képváltás 5 másodpercenként
+setInterval(nextSlide, 5000);
+
+// Kattintás a pontokon
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
 });
   </script>
 </body>
